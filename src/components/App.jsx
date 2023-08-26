@@ -6,7 +6,7 @@ import { AppContainer, Title, FilterWrapper } from './AppStyled';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function App() {
+const App = () => {
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
 
