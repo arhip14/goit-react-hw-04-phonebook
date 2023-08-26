@@ -1,5 +1,5 @@
-import React from 'react';
-import { ContactListContainer } from './ContactList.styles'; 
+import React from "react";
+import { ContactListContainer } from "./ContactFormStyled";
 
 const ContactList = ({ contacts, onDeleteContact }) => {
   return (
@@ -17,5 +17,6 @@ const ContactList = ({ contacts, onDeleteContact }) => {
     </ContactListContainer>
   );
 };
+
 
 export default ContactList;
