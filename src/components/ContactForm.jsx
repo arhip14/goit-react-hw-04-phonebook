@@ -1,7 +1,8 @@
-import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import React from "react";
+import { Formik, Form, Field, ErrorMessage, validateYupSchema } from 'formik';
 import * as Yup from 'yup';
-import { FormContainer } from './ContactFormStyled'; 
+import { FormContainer } from './ContactFormStyled';
+
 const ContactForm = ({ addContact }) => {
   const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -15,15 +16,18 @@ const ContactForm = ({ addContact }) => {
       .required('Phone number is required'),
   });
 
+
   const initialValues = {
     name: '',
     number: '',
   };
 
+
   const onSubmit = (values, { resetForm }) => {
     addContact({ ...values, id: Math.random().toString() });
     resetForm();
   };
+
 
   return (
     <FormContainer>
@@ -31,24 +35,31 @@ const ContactForm = ({ addContact }) => {
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={onSubmit}
-      >
+        onSubmit={onSubmit}>
         <Form>
           <div>
-            <label>Name:</label>
-            <Field type="text" name="name" />
-            <ErrorMessage name="name" component="div" />
+            <label>
+              Name:
+            </label>
+            <Field type="text" name="name"></Field>
+            <ErrorMessage name="name" component="div"></ErrorMessage>
           </div>
+          
           <div>
-            <label>Number:</label>
-            <Field type="tel" name="number" />
-            <ErrorMessage name="number" component="div" />
+            <label>
+              Number:
+            </label>
+            <Field type="tel" name="number"></Field>
+            <ErrorMessage name="number" component="div"></ErrorMessage>
           </div>
-          <button type="submit">Add Contact</button>
+          <button type="submit">
+            Add Contact
+          </button>
         </Form>
       </Formik>
     </FormContainer>
-  );
-};
+  )
+}
 
-export default ContactForm;
+
+export default ContactForm
